@@ -153,6 +153,13 @@ using namespace clang;
  */
 namespace OMRChecker {
 
+class OMRChecker(tool.Tool):
+   '''A wrapper providing an interface for interacting with OMRChecker.'''
+
+   def __init__(self, checker):
+      base = [os.environ['CLANG'], '-fsyntax-only', '-Xclang', '-load', '-Xclang', checker, '-Xclang', '-add-plugin', '-Xclang', 'omr-checker']
+      super(OMRChecker, self).__init__(lambda args: base + args)
+
    static CXXThisExpr* getThisExpr(Expr*);
 
 #define trace(x) \

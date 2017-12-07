@@ -55,10 +55,10 @@ CXXFLAGS  	:= `$(LLVM_CONFIG) --cxxflags` -std=c++0x -Wno-strict-aliasing
 # Build rules
 #
 $(OMRCHECKER_OBJECT): $(CHECKER_O)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CLANG) $(LDFLAGS) -o $@ $^
 
 $(CHECKER_O): $(CHECKER_CPP) $(CHECKER_HPP) 
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CLANG) $(CXXFLAGS) -c -o $@ $<
 
 #
 # Rules for running tests
