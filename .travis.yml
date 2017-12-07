@@ -77,11 +77,13 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
           packages:
             - bison
-            - clang-3.4
-            - libclang-3.4-dev
-            - llvm-3.4
+            - clang-3.8
+            - libclang-3.8-dev
+            - llvm-3.8
+            - llvm-3.8-dev
       env: RUN_LINT=yes RUN_BUILD=no SPEC=linux_x86-64 PLATFORM=amd64-linux64-gcc
       dist: precise
     ## CMake builds
